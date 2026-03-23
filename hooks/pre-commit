@@ -1,0 +1,9 @@
+#!/bin/sh
+# Pre-commit hook template: run AI README verification for staged changes
+echo "Running AI_README verification (pre-commit)..."
+npm run verify:ai-readme
+if [ $? -ne 0 ]; then
+  echo "Pre-commit: AI README check failed. Update AI_README.md or add required change notes."
+  exit 1
+fi
+exit 0

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <rect width="100%" height="100%" fill="#fffaf0"/>
+  <g transform="translate(160,60)">
+    <ellipse cx="140" cy="100" rx="120" ry="80" fill="#e6b800" stroke="#b88600" stroke-width="6"/>
+    <text x="120" y="250" font-size="36" fill="#7a4b00" font-family="sans-serif">孜然</text>
+  </g>
+</svg>

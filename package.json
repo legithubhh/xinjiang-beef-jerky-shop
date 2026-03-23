@@ -1,0 +1,43 @@
+{
+  "name": "xinjiang-beef-jerky-shop",
+  "version": "1.0.0",
+  "description": "新疆手工牛肉干在线订购网站 - 人机协作开发项目",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "node server/index.cjs",
+    "start": "npm run build && npm run server",
+    "test": "vitest",
+    "lint": "eslint src/ server/",
+    "verify:ai-readme": "node scripts/verify_ai_readme.cjs staged",
+    "ci:verify-ai-readme": "node scripts/verify_ai_readme.cjs"
+  },
+  "keywords": [
+    "新疆",
+    "牛肉干",
+    "电商",
+    "手工食品",
+    "人机协作"
+  ],
+  "author": "Jason & OpenClaw",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "vite": "^5.0.0",
+    "vitest": "^1.0.0"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.0.0",
+    "jsonwebtoken": "^9.0.0",
+    "sqlite3": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
