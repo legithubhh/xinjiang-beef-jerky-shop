@@ -75,9 +75,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 
 // 需要认证的路由
-app.use(authMiddleware);
-app.use('/api/cart', cartRoutes);
-app.use('/api/orders', orderRoutes);
+app.use('/api/cart', authMiddleware, cartRoutes);
+app.use('/api/orders', authMiddleware, orderRoutes);
 
 // ============================================
 // 静态文件服务 (生产环境)

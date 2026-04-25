@@ -56,6 +56,8 @@
 - 2026-03-22 | README.md | AI-agent | 添加项目概览与文档更新规则
 
 ## 最近变更
+- 2026-04-25 | server/index.cjs | AI-agent | 将鉴权中间件从全局拦截改为仅作用于购物车与订单路由，修复首页被 401 拦截
+- 2026-04-25 | server/index.js | AI-agent | 同步鉴权中间件作用范围为受保护路由，保持双入口行为一致
 - 2026-04-25 | src/pages/Home.js | AI-agent | 首页中间白色背景添加美食滚动展示区（从英雄区域移至热销与特色之间）
 - 2026-04-25 | src/styles/main.css | AI-agent | 更新滚动展示区 CSS 样式（白色背景布局）
 - 2026-04-25 | docs/CHANGELOG.md | AI-agent | 记录 v1.1.0 变更
