@@ -54,7 +54,7 @@ export const ProductsPage = {
                                     <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${product.name}</h4>
                                     <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.75rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${product.description}</p>
                                     <div style="display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.75rem;">
-                                        <span style="color: var(--primary-color); font-size: 1.3rem; font-weight: bold;">¥${product.price}</span>
+                                        <span style="color: var(--primary-color); font-size: 1.3rem; font-weight: bold;">¥${product.price}/kg</span>
                                         ${product.originalPrice > product.price ? `<span style="color: var(--text-light); font-size: 0.9rem; text-decoration: line-through;">¥${product.originalPrice}</span>` : ''}
                                         <span style="color: var(--text-light); font-size: 0.85rem; margin-left: auto;">${product.weight}</span>
                                     </div>

@@ -48,7 +48,7 @@ export const ProductDetailPage = {
                             </div>
                             
                             <div style="display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem;">
-                                <span style="color: var(--primary-color); font-size: 2.5rem; font-weight: bold;">¥${product.price}</span>
+                                <span style="color: var(--primary-color); font-size: 2.5rem; font-weight: bold;">¥${product.price}/kg</span>
                                 ${product.originalPrice > product.price ? `<span style="color: var(--text-light); font-size: 1.5rem; text-decoration: line-through;">¥${product.originalPrice}</span>` : ''}
                                 <span style="color: var(--text-secondary);">/${product.weight}</span>
                             </div>

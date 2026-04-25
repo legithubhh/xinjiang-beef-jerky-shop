@@ -89,7 +89,7 @@ export const HomePage = {
                                 </p>
                                 <div style="display: flex; justify-content: space-between; align-items: center;">
                                     <div>
-                                        <span style="color: var(--primary-color); font-size: 1.5rem; font-weight: bold;">¥${product.price}</span>
+                                        <span style="color: var(--primary-color); font-size: 1.5rem; font-weight: bold;">¥${product.price}/kg</span>
                                         ${product.originalPrice > product.price ? `<span style="margin-left:0.5rem; color: var(--text-light); text-decoration: line-through;">¥${product.originalPrice}</span>` : ''}
                                     </div>
                                     <button type="button" class="btn btn-primary add-to-cart-btn" data-product-id="${product.id}">加入购物车</button>
