@@ -1,8 +1,44 @@
 /**
  * 首页组件
+ *
+ * [AI-GENERATED] 2026-04-25 - OpenClaw
+ * 功能说明：
+ * - 首页中间白色背景区域添加美食图片滚动展示区（热销产品与特色优势之间）
+ * - 左侧顺序播放，右侧倒序播放
+ * - 食欲刺激视觉效果（悬停缩放、光晕脉动）
+ * 更新记录：
+ * - 2026-04-25：将滚动展示区从英雄区域移至白色背景区域
  */
 import { getAllProducts, getProductById } from '../utils/products.js';
 import { addToCart } from '../utils/cart.js';
+
+// 美食图片配置（顺序）- 使用 /images/ 公共路径
+const foodImages = [
+    { name: '鸡爪', img: '/images/鸡爪.jpg' },
+    { name: '烤鸡', img: '/images/烤鸡.jpg' },
+    { name: '牛板筋', img: '/images/牛板筋.jpg' },
+    { name: '牛肉干', img: '/images/牛肉干.jpg' },
+    { name: '牛肉袈裟', img: '/images/牛肉袈裟.jpg' },
+    { name: '牛肉酱', img: '/images/牛肉酱.jpg' },
+    { name: '牛肉丸', img: '/images/牛肉丸.jpg' },
+];
+
+// 生成滚动图片 HTML
+function createScrollGalleryHTML(images, isReverse = false) {
+    // 倒序则反转数组
+    const displayImages = isReverse ? [...images].reverse() : images;
+    // 复制一份用于无缝滚动（首尾衔接）
+    const allImages = [...displayImages, ...displayImages];
+
+    return allImages.map(item => `
+        <div class="scroll-item">
+            <div class="scroll-item-inner">
+                <img src="${item.img}" alt="${item.name}" loading="eager">
+                <span class="scroll-item-label">${item.name}</span>
+            </div>
+        </div>
+    `).join('');
+}
 
 export const HomePage = {
     render() {
@@ -68,6 +104,34 @@ export const HomePage = {
                         <a href="#/products" class="btn btn-outline" style="font-size: 1.1rem; padding: 1rem 2rem;">
                             查看全部产品 →
                         </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 美食滚动展示区（白色背景，左右两侧播放） -->
+            <section class="scroll-showcase-section" style="background: var(--background); padding: 3rem 0;">
+                <div class="scroll-showcase-wrapper">
+                    <!-- 左侧滚动展示区（顺序播放） -->
+                    <div class="scroll-gallery-left">
+                        <div class="scroll-track scroll-track-left" id="scroll-left">
+                            ${createScrollGalleryHTML(foodImages, false)}
+                        </div>
+                    </div>
+
+                    <!-- 中间装饰区域 -->
+                    <div class="scroll-showcase-center">
+                        <div class="showcase-slogan">
+                            <h3>美食随心选</h3>
+                            <p>同店更多爆品美食将陆续上线</p>
+                            <p>精选食材 · 匠心制作</p>
+                        </div>
+                    </div>
+
+                    <!-- 右侧滚动展示区（倒序播放） -->
+                    <div class="scroll-gallery-right">
+                        <div class="scroll-track scroll-track-right" id="scroll-right">
+                            ${createScrollGalleryHTML(foodImages, true)}
+                        </div>
                     </div>
                 </div>
             </section>

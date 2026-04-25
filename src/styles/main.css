@@ -2,6 +2,210 @@
    新疆手工牛肉干网站 - 主样式文件
    =================================== */
 
+/*
+ * [AI-GENERATED] 2026-04-25 - OpenClaw
+ * 更新记录：
+ * - 2026-04-25：将滚动展示区从英雄区域移至白色背景区域
+ * 样式说明：.scroll-showcase-section, .scroll-gallery-left/right, .scroll-track 等
+ * 食欲刺激视觉效果：悬停缩放、光晕脉动动画
+ */
+
+/* 美食滚动展示区 - 首页中间白色背景 */
+.scroll-showcase-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-showcase-wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* 左侧滚动展示区 */
+.scroll-gallery-left {
+    width: 200px;
+    height: 420px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-gallery-right {
+    width: 200px;
+    height: 420px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 中间装饰区域 */
+.scroll-showcase-center {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+.showcase-slogan {
+    text-align: center;
+}
+
+.showcase-slogan h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-weight: bold;
+}
+
+.showcase-slogan p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.showcase-slogan p:last-child {
+    margin-bottom: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* 滚动图片容器 */
+.scroll-track {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.scroll-track-left {
+    animation: scrollUp 12s linear infinite;
+}
+
+.scroll-track-right {
+    animation: scrollDown 12s linear infinite;
+}
+
+/* 顺序滚动（向上） */
+@keyframes scrollUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+}
+
+/* 倒序滚动（向下） */
+@keyframes scrollDown {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
+}
+
+/* 单个滚动图片项 */
+.scroll-item {
+    width: 100%;
+    height: 140px;
+    padding: 8px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.scroll-item:hover {
+    transform: scale(1.05);
+}
+
+.scroll-item-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(196, 30, 58, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.scroll-item:hover .scroll-item-inner {
+    box-shadow: 0 8px 30px rgba(196, 30, 58, 0.4), 0 0 20px rgba(212, 167, 106, 0.3);
+}
+
+/* 图片样式 */
+.scroll-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.scroll-item:hover img {
+    transform: scale(1.1);
+}
+
+/* 图片上的渐变遮罩 */
+.scroll-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+/* 美食名称标签 */
+.scroll-item-label {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    z-index: 1;
+    letter-spacing: 2px;
+}
+
+/* 食欲刺激光晕动画 */
+.scroll-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,200,100,0.1) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.scroll-item:hover::before {
+    opacity: 1;
+    animation: glowPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* 响应式 - 移动端隐藏侧边滚动 */
+@media (max-width: 1024px) {
+    .scroll-gallery-left,
+    .scroll-gallery-right {
+        display: none;
+    }
+
+    .scroll-showcase-center {
+        padding: 0;
+    }
+}
+
 /* CSS 变量 */
 :root {
     /* 主色调 - 新疆红 + 牛肉棕 */
