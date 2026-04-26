@@ -194,15 +194,60 @@
     50% { transform: scale(1.1); opacity: 1; }
 }
 
-/* 响应式 - 移动端隐藏侧边滚动 */
+/* 响应式 - 移动端调整侧边滚动为横向缩略展示 */
 @media (max-width: 1024px) {
-    .scroll-gallery-left,
-    .scroll-gallery-right {
-        display: none;
+    .scroll-showcase-wrapper {
+        flex-wrap: wrap;
+    }
+
+    .scroll-gallery-left {
+        display: block;
+        width: 100%;
+        height: 140px;
+        flex-shrink: 0;
+        position: relative;
+        overflow: hidden;
+        order: 1;
     }
 
     .scroll-showcase-center {
-        padding: 0;
+        padding: 1rem 0;
+        order: 2;
+    }
+
+    .scroll-gallery-right {
+        display: block;
+        width: 100%;
+        height: 140px;
+        flex-shrink: 0;
+        position: relative;
+        overflow: hidden;
+        order: 3;
+    }
+
+    /* 在小屏上改为横向可滑动的轨道，取消纵向自动滚动动画 */
+    .scroll-track {
+        position: relative;
+        animation: none !important;
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+    }
+
+    .scroll-item {
+        width: 120px;
+        height: 120px;
+        padding: 6px;
+        display: inline-block;
+    }
+
+    .scroll-item img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
     }
 }
 

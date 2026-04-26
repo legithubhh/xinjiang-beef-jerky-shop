@@ -61,6 +61,7 @@
 - 2026-04-25 | src/pages/Home.js | AI-agent | 首页中间白色背景添加美食滚动展示区（从英雄区域移至热销与特色之间）
 - 2026-04-25 | src/styles/main.css | AI-agent | 更新滚动展示区 CSS 样式（白色背景布局）
 - 2026-04-25 | docs/CHANGELOG.md | AI-agent | 记录 v1.1.0 变更
+- 2026-04-26 | src/styles/main.css | AI-agent | 修复移动端隐藏侧边滚动图，改为横向可滑动展示
 
 ## 审核与责任
 - 所有自动化更新应在 Pull Request 中由人类审阅者批准（若仓库使用 PR 流程）。
