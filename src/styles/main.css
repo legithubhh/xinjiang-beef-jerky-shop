@@ -239,6 +239,8 @@
 
     .scroll-item {
         width: 120px;
+        min-width: 120px;
+        flex: 0 0 120px;
         height: 120px;
         padding: 6px;
         display: inline-block;
